@@ -68,7 +68,7 @@ public class Pet {
     }
 
     public String playWith() {
-        return null;
+        return "You played with your pet";
     }
 
     public String pet() {

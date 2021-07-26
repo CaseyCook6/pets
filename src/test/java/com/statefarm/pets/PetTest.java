@@ -77,4 +77,29 @@ public class PetTest {
         String result = testPet.pet();
         assertEquals("Yay! Your pet loves you.", result);
     }
+
+    @Test
+    public void doTrick() {
+        String result = testPet.doTrick();
+        assertEquals("Your pet can't do a trick!", result);
+    }
+
+    @Test
+    public void attack() {
+        String result = testPet.attack();
+        assertEquals("Your pet can't attack.", result);
+    }
+
+    @Test
+    public void takeToVet() {
+        testPet.takeToVet();
+        boolean result = testPet.isSick();
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void playWith() {
+        assertEquals("You played with your pet", testPet.playWith());
+    }
+
 }
