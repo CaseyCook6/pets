@@ -1,8 +1,12 @@
 package com.statefarm.pets;
 
+import com.statefarm.food.Food;
+
+import java.util.ArrayList;
+
 public class Alligator extends Pet {
 
-    public Alligator(String name, char sex, int age) {
-        super(name, sex, age);
+    public Alligator(String name, char sex, int age, ArrayList<Food> foods) {
+        super(name, sex, age, foods);
     }
 }
