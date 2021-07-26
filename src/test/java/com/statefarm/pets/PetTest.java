@@ -25,7 +25,7 @@ public class PetTest {
         testFood3 = new Food("grapes");
         foods = new ArrayList<>(Arrays.asList(testFood1, testFood2, testFood3));
 
-        testPet = new Pet("Fluffy", 'F', 3, foods);
+        testPet = new Pet("Fluffy", 'f', 3, foods);
     }
 
     @Test
@@ -50,5 +50,18 @@ public class PetTest {
     public void petIsHungry() {
         boolean result = testPet.isHungry();
         assertEquals(false, result);
+    }
+
+    @Test
+    public void isSick() {
+        boolean result = testPet.isSick();
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void setSick() {
+        testPet.setSick(true);
+        boolean result = testPet.isSick();
+        assertEquals(true, result);
     }
 }

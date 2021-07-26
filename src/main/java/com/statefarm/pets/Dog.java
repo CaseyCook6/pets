@@ -1,14 +1,16 @@
 package com.statefarm.pets;
 
 import com.statefarm.food.Food;
-import com.statefarm.interfaces.Actions;
-import com.statefarm.interfaces.Care;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
-public class Dog extends Pet implements Actions, Care {
+public class Dog extends Pet {
+
+    private boolean isNeutered;
+    private boolean isSpayed;
 
     public Dog(String name, char sex, int age, ArrayList<Food> foods) {
         super(name, sex, age, foods);
@@ -16,35 +18,41 @@ public class Dog extends Pet implements Actions, Care {
 
     @Override
     public String doTrick() {
-        ArrayList<String> tricks = new ArrayList<>(Arrays.asList("rolled over", "shook your hand", "sat down", "ignored you"));
+        List<String> tricks = new ArrayList<>(Arrays.asList("rolled over", "shook your hand", "sat down", "ignored you"));
         Random random = new Random();
         int choice = random.nextInt(4);
-        return this.getName() + tricks.get(choice);
+        return this.getName() + " " + tricks.get(choice);
     }
 
     @Override
     public String attack() {
-        
-        return null;
+        ArrayList<String> attacks = new ArrayList<>(Arrays.asList("bit you", "licked you to death", "growled at you"));
+        Random random = new Random();
+        int choice = random.nextInt(3);
+        return this.getName() + " " + attacks.get(choice);
     }
 
     @Override
-    public String takeToVet() {
-        return null;
-    }
-
-    @Override
-    public String feed() {
-        return null;
+    public void takeToVet() {
+        setSick(false);
+        if (this.getSex() == 'M') {
+            isNeutered = true;
+        } else {
+            isSpayed = true;
+        }
     }
 
     @Override
     public String playWith() {
-        return null;
+        return "You threw the ball for " + this.getName();
     }
 
-    @Override
-    public String pet() {
-        return null;
+    public boolean isFixed() {
+        if (this.getSex() == 'M') {
+            return isNeutered;
+        } else {
+            return isSpayed;
+        }
     }
+
 }
