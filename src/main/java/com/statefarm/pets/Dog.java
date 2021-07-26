@@ -44,7 +44,15 @@ public class Dog extends Pet {
 
     @Override
     public String playWith() {
-        return "You threw the ball for " + this.getName();
+        this.setHungry(true);
+        char sex = this.getSex();
+        String word = "";
+        if(sex == 'M'){
+            word = "he";
+        } else {
+            word = "she";
+        }
+        return "You threw the ball for " + this.getName() + ". Now " + word + " is hungry.";
     }
 
     public boolean isFixed() {

@@ -71,7 +71,14 @@ public class DogTest {
     @Test
     public void playWith() {
         String result = femaleDog.playWith();
-        assertEquals("You threw the ball for Linda", result);
+        assertEquals("You threw the ball for Linda. Now she is hungry.", result);
+    }
+
+    @Test
+    public void playWithHunger(){
+        dog.playWith();
+        boolean result = dog.isHungry();
+        assertEquals(true, result);
     }
 
 }

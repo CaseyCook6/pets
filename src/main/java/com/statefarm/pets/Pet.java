@@ -52,7 +52,7 @@ public class Pet {
     }
 
     public String doTrick() {
-        return "Your pet did a trick!";
+        return "Your pet can't do a trick!";
     }
 
     public String attack() {

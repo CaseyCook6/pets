@@ -64,4 +64,17 @@ public class PetTest {
         boolean result = testPet.isSick();
         assertEquals(true, result);
     }
+
+    @Test
+    public void feed() {
+        testPet.feed();
+        boolean result = testPet.isHungry();
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void pet() {
+        String result = testPet.pet();
+        assertEquals("Yay! Your pet loves you.", result);
+    }
 }
